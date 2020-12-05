@@ -1,3 +1,9 @@
 {
-    "monitor" : "DisplayPort-0"
+    "monitor" : "DisplayPort-0",
+    "buttons" : {
+        "HUION Huion Tablet_HS611 Pad pad" : {
+            "Button 2" : "key +",
+            "Button 3" : "key -"
+        }
+    }
 }

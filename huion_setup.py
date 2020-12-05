@@ -5,6 +5,11 @@ def limit_monitors(monitor, huion_devices):
     for huion_device, device_id in huion_devices.items():
         os.system('xinput map-to-output {} {}'.format(device_id, monitor))
 
+def configure_buttons(buttons_cfgs):
+    for (device_name, button_cfg) in buttons_cfgs.items():
+        for (button, key) in button_cfg.items():
+            os.system("xsetwacom --set \"{}\" {} \"{}\"".format(device_name, button, key))
+
 def filter_devices(xinput_output):
     xinput_output = xinput_output.split("\n")
     xinput_huion_devices = [device for device in xinput_output if "Huion" in device]
