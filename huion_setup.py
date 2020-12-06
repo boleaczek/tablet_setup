@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 def limit_monitors(monitor, huion_devices):
     for huion_device, device_id in huion_devices.items():
@@ -28,7 +29,8 @@ def filter_devices(xinput_output):
 
     return huion_devices
 
-with open("config.json") as cfg_file:
+config_path = sys.argv[1]
+with open(config_path) as cfg_file:
     cfg = json.load(cfg_file)
     huion_devices = filter_devices(os.popen("xinput").read())
     limit_monitors(cfg["monitor"], huion_devices)
