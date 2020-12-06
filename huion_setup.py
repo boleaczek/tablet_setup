@@ -33,4 +33,7 @@ config_path = sys.argv[1]
 with open(config_path) as cfg_file:
     cfg = json.load(cfg_file)
     huion_devices = filter_devices(os.popen("xinput").read())
+
     limit_monitors(cfg["monitor"], huion_devices)
+
+    configure_buttons(cfg["buttons"])
